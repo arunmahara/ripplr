@@ -17,6 +17,7 @@ router.register('shipping_detail', views.ShippingDetailView, basename='shipping_
 router.register('banking_detail', views.BankingDetailView, basename='banking_detail')
 router.register('document_proof', views.DocumentAndProofView, basename='document_proof')
 router.register('other_detail', views.OtherDetailView, basename='other_detail')
+router.register('login_credential', views.LoginCredentialView, basename='login_credential')
 
 
 urlpatterns = [

@@ -1,7 +1,8 @@
 from .models import ClientDetail, CommunicationDetail, BillingDetail, ShippingDetail, BankingDetail, DocumentAndProof, OtherDetail
 from .serializers import ClientDetailSerializer, CommunicationDetailSerializer, BankingDetailSerializer, ShippingDetailSerializer, BillingDetailSerializer
-from .serializers import DocumentAndProofSerializer, OtherDetailSerializer
+from .serializers import DocumentAndProofSerializer, OtherDetailSerializer, LoginCredentialSerializer
 from rest_framework import viewsets
+from django.contrib.auth.models import User
 
 
 # client detail model viewset
@@ -44,3 +45,8 @@ class DocumentAndProofView(viewsets.ModelViewSet):
 class OtherDetailView(viewsets.ModelViewSet):
     queryset = OtherDetail.objects.all()
     serializer_class = OtherDetailSerializer
+
+# other detail model viewset
+class LoginCredentialView(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = LoginCredentialSerializer
