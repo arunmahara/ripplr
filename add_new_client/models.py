@@ -120,8 +120,14 @@ class AddressDetail(TimeStamp):
 class CommunicationDetail(AddressDetail):
     client  = models.OneToOneField(ClientDetail, on_delete=models.CASCADE, primary_key=True)
     email = models.EmailField(unique=True)
-    mobile_no = PhoneNumberField(unique=True)
-    alternate_no = PhoneNumberField()
+    mobile_no = PhoneNumberField(
+            unique=True,
+            help_text="Enter phone number with country code.",
+            error_messages ={
+                "unique":"Mobile number already exists."
+                }
+        )
+    alternate_no = PhoneNumberField(help_text="Enter phone number with country code.")
 
     def __str__(self):
         return self.client.client_name
